@@ -5,8 +5,6 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -14,14 +12,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.tech.Virtual.Store.model.Funcionario;
-import com.tech.Virtual.Store.model.FuncionarioDTO;
 import com.tech.Virtual.Store.repository.FuncionarioRepository;
-import com.tech.Virtual.Store.service.FuncionarioService;
+
 
 @CrossOrigin(allowedHeaders = "", origins = "")
 @Controller
@@ -31,9 +26,6 @@ public class FuncionarioController {
 	@Autowired
 	private FuncionarioRepository funcionarioRepository;
 	
-	@Autowired
-	private FuncionarioService funcionarioService;
-
 	@GetMapping("/workspace/funcionarios/cadastrar")
 	public ModelAndView cadastrar(Funcionario funcionario) {
 		ModelAndView mv = new ModelAndView("workspace/funcionarios/cadastro");
